@@ -25,6 +25,16 @@ const NavMain = (props) => {
         <h3 className="logo">App name</h3>
       </NavLink>
       <ul className="nav-list">
+        {!context.isLoggedIn && (
+          <React.Fragment>
+            <li>
+              <NavLink to="/dreams">Dreams</NavLink>
+            </li>
+            <li>
+              <NavLink to="/concepts">Concepts</NavLink>
+            </li>
+          </React.Fragment>
+        )}
         {context.isLoggedIn && (
           <React.Fragment>
             <li>
