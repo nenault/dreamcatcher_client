@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedAdminRoute from "./components/ProtectedAdminRoute";
 import Profile from "./pages/Profile";
 import Dreams from "./pages/Dreams/Dreams"
 import EditDream from "./pages/Dreams/editDream"
@@ -24,13 +25,13 @@ function App() {
         <Route exact path="/signin" component={Signin} />
         <Route exact path="/signup" component={Signup} />
         <ProtectedRoute exact path="/profile" component={Profile} />
-        <Route exact path="/dreams" component={Dreams} />
-        <Route exact path="/dreams/create" component={CreateDream} />
-        <Route exact path="/dreams/:id/edit" component={EditDream} />
-        <Route exact path="/dreams/:id" component={OneDream} />
-        <Route exact path="/concepts" component={Concepts} />
-        <Route exact path="/concepts/create" component={CreateConcept} />
-        <Route exact path="/concepts/:id/edit" component={EditConcept} />
+        <ProtectedRoute exact path="/dreams" component={Dreams} />
+        <ProtectedRoute exact path="/dreams/create" component={CreateDream} />
+        <ProtectedRoute exact path="/dreams/:id/edit" component={EditDream} />
+        <ProtectedRoute exact path="/dreams/:id" component={OneDream} />
+        <ProtectedAdminRoute exact path="/concepts" component={Concepts} />
+        <ProtectedAdminRoute exact path="/concepts/create" component={CreateConcept} />
+        <ProtectedAdminRoute exact path="/concepts/:id/edit" component={EditConcept} />
       </Switch>
     </div>
   );

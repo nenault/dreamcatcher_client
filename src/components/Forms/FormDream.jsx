@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 import { withRouter } from "react-router-dom";
+import { UserContext } from "../Auth/UserContext";
+import OneConcept from "./OneConcept";
 
 class FormDream extends Component {
+  static contextType = UserContext;
+
   state = {
     name: "",
+    user: "",
+    concepts: [{ type: "", value: "" }],
   };
 
   componentDidMount() {
@@ -24,14 +30,8 @@ class FormDream extends Component {
   }
 
   createDream = () => {
-    const fd = new FormData();
-
-    for (let key in this.state) {
-      fd.append(key, this.state[key]);
-    }
-
     apiHandler
-      .createOne("/api/dreams", fd)
+      .createOne("/api/dreams", this.state)
       .then((apiRes) => {
         this.props.history.push("/dreams");
       })
@@ -72,13 +72,30 @@ class FormDream extends Component {
     const value =
       event.target.type === "file" ? event.target.files[0] : event.target.value;
 
-    this.setState({ [name]: value });
+    this.setState({ [name]: value, user: this.context.user._id });
+  };
+
+  getConcept = (concept) => {
+    const copyConcepts = [...this.state.concepts];
+
+    let { id, ...rest } = concept;
+    copyConcepts.splice(id, 1, rest);
+
+    this.setState({ concepts: copyConcepts });
+  };
+
+  addConcept = (event) => {
+    this.setState((prevState) => ({
+      concepts: [...prevState.concepts, { type: "", value: "" }],
+    }));
   };
 
   render() {
+    //console.log(this.state.concepts);
+    let { concepts } = this.state;
+    const buttonStatus = this.props.action === "edit" ? "Edit" : "Create";
     return (
       <form className="Form" onSubmit={this.handleSubmit}>
-        {/* <pre>{JSON.stringify(this.props, null, 2)}</pre> */}
         <label htmlFor="name">Name</label>
         <input
           id="name"
@@ -87,8 +104,10 @@ class FormDream extends Component {
           name="name"
           onChange={this.handleChange}
         />
-        
-        <button>Create</button>
+        <OneConcept id="0" handleConcept={this.getConcept} concepts={concepts}  />
+        {/* <OneConcept id="1" handleConcept={this.addConcept} /> */}
+        <p onClick={() => this.addConcept()}>Something else ?</p>
+        <button>{buttonStatus}</button>
       </form>
     );
   }

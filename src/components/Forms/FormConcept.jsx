@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 class FormConcept extends Component {
   state = {
     name: "",
+    image:"",
   };
 
   componentDidMount() {
@@ -76,6 +77,7 @@ class FormConcept extends Component {
   };
 
   render() {
+    const buttonStatus = this.props.action === "edit" ? "Edit" : "Create";
     return (
       <form className="Form" onSubmit={this.handleSubmit}>
         {/* <pre>{JSON.stringify(this.props, null, 2)}</pre> */}
@@ -88,14 +90,14 @@ class FormConcept extends Component {
           onChange={this.handleChange}
         />
 
-        <label htmlFor="profileImage">Image</label>
+        <label htmlFor="image">Image</label>
         <input
           type="file"
           name="image"
           id="image"
           onChange={this.handleChange}
         />
-        <button>Create</button>
+        <button>{buttonStatus}</button>
       </form>
     );
   }

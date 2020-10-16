@@ -40,7 +40,7 @@ class Concepts extends Component {
               name={concept.name}
               image={concept.image}
             />
-            <Link onClick={() => this.deleteOne(concept._id)}>Delete</Link>
+            <Link to={this.props} onClick={() => this.deleteOne(concept._id)}>Delete</Link>
             <Link to={`/concepts/${concept._id}/edit`}>Edit</Link>
           </React.Fragment>
         ))}

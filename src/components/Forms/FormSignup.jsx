@@ -7,6 +7,7 @@ class FormSignup extends Component {
   static contextType = UserContext;
 
   state = {
+    name: "",
     email: "",
     password: "",
   };
@@ -41,6 +42,8 @@ class FormSignup extends Component {
   render() {
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
+        <label htmlFor="name">Name</label>
+        <input type="name" id="name" name="name" />
         <label htmlFor="email">Email</label>
         <input type="email" id="email" name="email" />
         <label htmlFor="password">Password</label>
