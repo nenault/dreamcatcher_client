@@ -35,7 +35,9 @@ class Dreams extends Component {
         {this.state.dreams.map((dream) => (
           <React.Fragment key={dream._id}>
             <DreamCard id={dream._id} name={dream.name} />
-            <Link to={this.props} onClick={() => this.deleteOne(dream._id)}>Delete</Link>
+            <Link to={this.props} onClick={() => this.deleteOne(dream._id)}>
+              Delete
+            </Link>
             <Link to={`/dreams/${dream._id}/edit`}>Edit</Link>
           </React.Fragment>
         ))}

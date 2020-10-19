@@ -10,17 +10,22 @@ class FormDream extends Component {
   state = {
     name: "",
     user: "",
-    concepts: [{ type: "", value: "" }],
+    concepts: [{ type: "", some: "" }],
+    isEditing: this.props.action,
   };
 
   componentDidMount() {
     if (this.props.action === "edit") {
+      // this.state.isEditing = true;
       apiHandler
         .getOne("/api/dreams/", this.props.id)
         .then((apiRes) => {
           const dream = apiRes.data;
           this.setState({
             name: dream.name,
+            concepts: dream.concepts,
+            user: dream.user,
+            // isEditing: true,
           });
         })
         .catch((apiErr) => {
@@ -41,14 +46,8 @@ class FormDream extends Component {
   };
 
   updateDream = () => {
-    const fd = new FormData();
-
-    for (let key in this.state) {
-      fd.append(key, this.state[key]);
-    }
-
     apiHandler
-      .updateOne("/api/dreams/" + this.props.id, fd)
+      .updateOne("/api/dreams/" + this.props.id, this.state)
       .then((apiRes) => {
         this.props.history.push("/dreams");
       })
@@ -84,31 +83,50 @@ class FormDream extends Component {
     this.setState({ concepts: copyConcepts });
   };
 
+  removeConcept = (concept) => {
+    const copyConcepts = [...this.state.concepts];
+
+    //console.log(copyConcepts[concept.id]);
+
+    copyConcepts.splice(concept.id, 1);
+
+    this.setState({ concepts: copyConcepts });
+  };
+
   addConcept = (event) => {
     this.setState((prevState) => ({
-      concepts: [...prevState.concepts, { type: "", value: "" }],
+      concepts: [...prevState.concepts, { type: "", some: "" }],
     }));
   };
 
   render() {
-    //console.log(this.state.concepts);
-    let { concepts } = this.state;
-    const buttonStatus = this.props.action === "edit" ? "Edit" : "Create";
+    // console.log(this.state.concepts);
+    // let { concepts } = this.state;
+    const buttonStatus = this.state.isEditing === "edit" ? "Edit" : "Create";
     return (
-      <form className="Form" onSubmit={this.handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          type="text"
-          value={this.state.name}
-          name="name"
-          onChange={this.handleChange}
-        />
-        <OneConcept id="0" handleConcept={this.getConcept} concepts={concepts}  />
-        {/* <OneConcept id="1" handleConcept={this.addConcept} /> */}
-        <p onClick={() => this.addConcept()}>Something else ?</p>
-        <button>{buttonStatus}</button>
-      </form>
+      <div>
+        <h2>What do you remember?</h2>
+        <form className="Form" onSubmit={this.handleSubmit}>
+          {/* <label htmlFor="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            value={this.state.name}
+            name="name"
+            onChange={this.handleChange}
+          /> */}
+          <div style={{display:"flex"}}>About some
+          <OneConcept
+            handleConcept={this.getConcept}
+            handleRemove={this.removeConcept}
+            concepts={this.state.concepts}
+            idEditing={this.state.isEditing}
+          /></div>
+          {/* <OneConcept id="1" handleConcept={this.addConcept} /> */}
+          <p onClick={() => this.addConcept()}>Something else ?</p>
+          <button>{buttonStatus}</button>
+        </form>
+      </div>
     );
   }
 }

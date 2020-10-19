@@ -14,6 +14,8 @@ import Concepts from "./pages/Concepts/Concepts"
 import EditConcept from "./pages/Concepts/editConcept"
 import CreateDream from "./pages/Dreams/CreateDream";
 import CreateConcept from "./pages/Concepts/CreateConcept";
+import CreateSome from "./pages/Some/CreateSome";
+import Some from "./pages/Some/Some";
 
 
 function App() {
@@ -32,6 +34,9 @@ function App() {
         <ProtectedAdminRoute exact path="/concepts" component={Concepts} />
         <ProtectedAdminRoute exact path="/concepts/create" component={CreateConcept} />
         <ProtectedAdminRoute exact path="/concepts/:id/edit" component={EditConcept} />
+        <ProtectedAdminRoute exact path="/some" component={Some} />
+        <ProtectedAdminRoute exact path="/some/create" component={CreateSome} />
+        {/* <ProtectedAdminRoute exact path="/some/:id/edit" component={EditSome} /> */}
       </Switch>
     </div>
   );
