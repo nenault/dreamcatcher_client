@@ -39,6 +39,7 @@ class Dreams extends Component {
               Delete
             </Link>
             <Link to={`/dreams/${dream._id}/edit`}>Edit</Link>
+            <Link to={`/dreams/${dream._id}/`}>See</Link>
           </React.Fragment>
         ))}
       </div>

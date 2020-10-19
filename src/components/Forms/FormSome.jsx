@@ -23,9 +23,7 @@ class FormSome extends Component {
         console.log(apiError);
       });
 
-  
-
-    this.setState({ value: ""})
+    this.setState({ value: "" });
   };
 
   updateSome = () => {
@@ -50,13 +48,17 @@ class FormSome extends Component {
   handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    this.setState({ [name]: value, user: this.context.user._id, concept:this.props.concept });
+    this.setState({
+      [name]: value,
+      user: this.context.user._id,
+      concept: this.props.concept,
+    });
   };
 
   render() {
     const buttonStatus = this.props.action === "edit" ? "Edit" : "Create";
     return (
-      <>
+      <div style={{ display: "flex" }}>
         <input
           id="value"
           type="text"
@@ -65,7 +67,7 @@ class FormSome extends Component {
           onChange={this.handleChange}
         />
         <p onClick={() => this.addSome()}>Add</p>
-      </>
+      </div>
     );
   }
 }

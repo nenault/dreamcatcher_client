@@ -11,6 +11,7 @@ class FormDream extends Component {
     name: "",
     user: "",
     feel: "",
+    date:new Date(),
     concepts: [{ type: "", some: "", feeling: "" }],
     isEditing: this.props.action,
   };

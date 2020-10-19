@@ -6,6 +6,7 @@ import Formsome from "../../components/Forms/FormSome";
 class Some extends Component {
   state = {
     someList: null,
+    addInput: "",
     someValue: "",
     feeling: "",
     feelingValue: "",
@@ -43,6 +44,14 @@ class Some extends Component {
     );
   };
 
+  addInput = (event) => {
+    this.setState({
+      addInput: (
+        <Formsome concept={this.props.someType} handleSome={this.addSome} />
+      ),
+    });
+  };
+
   setFeeling = (event) => {
     this.setState({
       feeling: <FormFeeling handleFeeling={this.addFeeling} />,
@@ -66,11 +75,13 @@ class Some extends Component {
       {
         someList: [...this.state.someList, some],
         someValue: some._id,
+        addInput: "",
       },
       () =>
         this.props.handleValue({
           someValue: this.state.someValue,
-        })
+        }),
+      this.setFeeling()
     );
   };
 
@@ -113,8 +124,9 @@ class Some extends Component {
             </option>
           ))}
         </select>
-        or
-        <Formsome concept={this.props.someType} handleSome={this.addSome} />
+        <span onClick={() => this.addInput()}>or add</span>
+
+        <div>{this.state.addInput}</div>
         <div>{this.state.feeling}</div>
       </div>
     );
