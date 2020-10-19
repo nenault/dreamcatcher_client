@@ -16,15 +16,16 @@ class FormSome extends Component {
     apiHandler
       .createOne("/api/some", this.state)
       .then((apiRes) => {
+        this.props.handleSome(apiRes.data);
         // this.props.history.push("/concepts");
       })
       .catch((apiError) => {
         console.log(apiError);
       });
 
-    this.props.handleSome({
-      value: this.state.value,
-    });
+  
+
+    this.setState({ value: ""})
   };
 
   updateSome = () => {

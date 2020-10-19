@@ -6,9 +6,11 @@ class OneConcept extends Component {
   state = {
     conceptsList: null,
     concepts: "",
-    conceptValue: "",
+    someValue: "",
     someType: "",
     some: "",
+    id: "",
+    feelingValue: "",
   };
 
   componentDidMount() {
@@ -25,7 +27,7 @@ class OneConcept extends Component {
   handleChange = (event) => {
     const value = event.target.value;
     const key = event.target.name;
-    const id = event.target.parentNode.id;
+    const id = this.props.id;
 
     // let concept = "";
     // let conceptValue = "";
@@ -42,6 +44,7 @@ class OneConcept extends Component {
       {
         [key]: value,
         someType: event.target.value,
+        id: id,
       },
       () => this.setSome()
     );
@@ -49,19 +52,44 @@ class OneConcept extends Component {
     this.props.handleConcept({
       id: id,
       type: event.target.value,
-      // value: conceptValue,
+      some: this.state.someValue,
+      feeling: ""
     });
     // this.state.some = <Some someType={this.state.someType} />;
   };
 
   setSome = (event) => {
-    this.setState({ some: <Some someType={this.state.someType} /> });
+    this.setState({
+      some: (
+        <Some
+          handleValue={this.getValue}
+          liftFeeling={this.getFeeling}
+          someType={this.state.someType}
+        />
+      ),
+    });
   };
 
-  removeConcept = (event) => {
-    this.props.handleRemove({
-      id: event,
-    });
+  getValue = (event) => {
+    this.setState({ someValue: event.someValue }, () =>
+      this.props.handleConcept({
+        id: this.state.id,
+        type: this.state.someType,
+        some: this.state.someValue,
+        feeling: ""
+      })
+    );
+  };
+
+  getFeeling = (event) => {
+    this.setState({ feelingValue: event.feelingValue }, () =>
+    this.props.handleConcept({
+      id: this.state.id,
+      type: this.state.someType,
+      some: this.state.someValue,
+      feeling: this.state.feelingValue
+    })
+  );
   };
 
   render() {
@@ -74,18 +102,19 @@ class OneConcept extends Component {
     if (!this.state.conceptsList) {
       return <div>Loading my Concepts...</div>;
     }
-    return this.props.concepts.map((concept, i) => {
+   
       return (
-        <div key={i} id={i} style={{ display: "flex" }}>
+        <div style={{ display: "flex" }}>
           <select
             id="concepts"
-            defaultValue={
-              this.props.idEditing === "edit"
-                ? this.props.concepts[i].type
-                  ? this.props.concepts[i].type
-                  : "-1"
-                : "-1"
-            }
+            defaultValue="-1"
+            // defaultValue={
+            //   this.props.idEditing === "edit"
+            //     ? this.props.concepts[i].type
+            //       ? this.props.concepts[i].type
+            //       : "-1"
+            //     : "-1"
+            // }
             // defaultValue={this.props.concepts[i].type}
             name="concepts"
             onChange={this.handleChange}
@@ -123,7 +152,7 @@ class OneConcept extends Component {
           </span> */}
         </div>
       );
-    });
+  
   }
 }
 

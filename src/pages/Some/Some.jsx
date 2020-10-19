@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
+import FormFeeling from "../../components/Forms/FormFeeling";
 import Formsome from "../../components/Forms/FormSome";
 
 class Some extends Component {
   state = {
     someList: null,
-    lastSome: "",
     someValue: "",
-    isRendering: false,
+    feeling: "",
+    feelingValue: "",
   };
 
   componentDidMount() {
@@ -31,25 +32,51 @@ class Some extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({ someValue: event.target.value });
+    this.setState(
+      { someValue: event.target.value },
+      () =>
+        this.props.handleValue({
+          someValue: this.state.someValue,
+          // feeling: this.state.feelingValue,
+        }),
+      this.setFeeling()
+    );
   };
 
-  addSome = (event) => {
-    apiHandler
-      .getAll("/api/some")
-      .then((apiRes) => {
-        this.setState({ someList: apiRes.data, lastSome: event.value }, () =>
-          this.setState({ isRendering: true })
-        );
-      })
-      .catch((apiErr) => {
-        console.log(apiErr);
-      });
+  setFeeling = (event) => {
+    this.setState({
+      feeling: <FormFeeling handleFeeling={this.addFeeling} />,
+    });
+  };
+
+  addFeeling = (event) => {
+    this.setState(
+      {
+        feelingValue: event.feeling,
+      },
+      () =>
+        this.props.liftFeeling({
+          feelingValue: this.state.feelingValue,
+        })
+    );
+  };
+
+  addSome = (some) => {
+    this.setState(
+      {
+        someList: [...this.state.someList, some],
+        someValue: some._id,
+      },
+      () =>
+        this.props.handleValue({
+          someValue: this.state.someValue,
+        })
+    );
   };
 
   render() {
     // console.log(this.state.lastSome.length);
-    console.log(this.state.isRendering, this.state.lastSome);
+    // console.log(this.state.isRendering, this.state.lastSome);
 
     if (!this.state.someList) {
       return <div>Loading...</div>;
@@ -62,9 +89,10 @@ class Some extends Component {
         <span>Who ?</span>
         <select
           id="some"
-          defaultValue={
-            this.state.isRendering == !false ? this.state.lastSome : "-1"
-          }
+          value={this.state.someValue}
+          // defaultValue={
+          //   this.state.isRendering == !false ? this.state.lastSome : "-1"
+          // }
           // defaultValue={
           //   this.props.idEditing === "edit"
           //     ? this.props.concepts[i].type
@@ -76,16 +104,18 @@ class Some extends Component {
           name="some"
           onChange={this.handleChange}
         >
-          <option value="-1" disabled>
+          <option value="" disabled>
             ...
           </option>
           {filteredSome.map((elm) => (
-            <option value={elm.value} key={elm._id}>
+            <option value={elm._id} key={elm._id}>
               {elm.value}
             </option>
           ))}
         </select>
+        or
         <Formsome concept={this.props.someType} handleSome={this.addSome} />
+        <div>{this.state.feeling}</div>
       </div>
     );
   }

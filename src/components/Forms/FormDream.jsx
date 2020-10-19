@@ -10,7 +10,7 @@ class FormDream extends Component {
   state = {
     name: "",
     user: "",
-    concepts: [{ type: "", some: "" }],
+    concepts: [{ type: "", some: "", feeling: "" }],
     isEditing: this.props.action,
   };
 
@@ -95,7 +95,7 @@ class FormDream extends Component {
 
   addConcept = (event) => {
     this.setState((prevState) => ({
-      concepts: [...prevState.concepts, { type: "", some: "" }],
+      concepts: [...prevState.concepts, { type: "", some: "", feeling: "" }],
     }));
   };
 
@@ -105,23 +105,30 @@ class FormDream extends Component {
     const buttonStatus = this.state.isEditing === "edit" ? "Edit" : "Create";
     return (
       <div>
-        <h2>What do you remember?</h2>
         <form className="Form" onSubmit={this.handleSubmit}>
-          {/* <label htmlFor="name">Name</label>
+          <label htmlFor="name">Name</label>
           <input
             id="name"
             type="text"
             value={this.state.name}
             name="name"
             onChange={this.handleChange}
-          /> */}
-          <div style={{display:"flex"}}>About some
-          <OneConcept
-            handleConcept={this.getConcept}
-            handleRemove={this.removeConcept}
-            concepts={this.state.concepts}
-            idEditing={this.state.isEditing}
-          /></div>
+          />
+          <h2>What do you remember?</h2>
+          {this.state.concepts.map((concept, i) => (
+            <div key={i} style={{ display: "flex" }}>
+              About some
+              <OneConcept
+                handleConcept={this.getConcept}
+                sendValue={this.getConcept}
+                handleRemove={this.removeConcept}
+                concepts={this.state.concepts}
+                idEditing={this.state.isEditing}
+                id={i}
+              />
+            </div>
+          ))}
+
           {/* <OneConcept id="1" handleConcept={this.addConcept} /> */}
           <p onClick={() => this.addConcept()}>Something else ?</p>
           <button>{buttonStatus}</button>
