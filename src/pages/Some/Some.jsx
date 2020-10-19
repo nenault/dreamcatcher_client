@@ -79,7 +79,7 @@ class Some extends Component {
     // console.log(this.state.isRendering, this.state.lastSome);
 
     if (!this.state.someList) {
-      return <div>Loading...</div>;
+      return <div></div>;
     }
     const filteredSome = this.state.someList.filter(
       (concepts) => concepts.concept === this.props.someType

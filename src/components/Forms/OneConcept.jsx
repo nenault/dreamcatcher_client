@@ -100,7 +100,7 @@ class OneConcept extends Component {
     // console.log(this.state.some);
 
     if (!this.state.conceptsList) {
-      return <div>Loading my Concepts...</div>;
+      return <div></div>;
     }
    
       return (

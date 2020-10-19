@@ -10,6 +10,7 @@ class FormDream extends Component {
   state = {
     name: "",
     user: "",
+    feel: "",
     concepts: [{ type: "", some: "", feeling: "" }],
     isEditing: this.props.action,
   };
@@ -114,6 +115,27 @@ class FormDream extends Component {
             name="name"
             onChange={this.handleChange}
           />
+          <h2>How do you feel?</h2>
+          <select
+            id="feel"
+            defaultValue="-1"
+            name="feel"
+            onChange={this.handleChange}
+          >
+            <option value="-1" disabled>
+              ...
+            </option>
+            <option value="Excited">Excited</option>
+            <option value="Happy">Happy</option>
+            <option value="Contented">Contented</option>
+            <option value="Calm">Calm</option>
+            <option value="Bored">Bored</option>
+            <option value="Sad">Sad</option>
+            <option value="Scared">Scared</option>
+            <option value="Angry">Angry</option>
+            <option value="Upset">Upset</option>
+            <option value="Nervous">Nervous </option>
+          </select>
           <h2>What do you remember?</h2>
           {this.state.concepts.map((concept, i) => (
             <div key={i} style={{ display: "flex" }}>
