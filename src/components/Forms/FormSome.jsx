@@ -56,7 +56,7 @@ class FormSome extends Component {
   };
 
   render() {
-    const buttonStatus = this.props.action === "edit" ? "Edit" : "Create";
+    // const buttonStatus = this.props.action === "edit" ? "Edit" : "Create";
     return (
       <div style={{ display: "flex" }}>
         <input
@@ -66,7 +66,7 @@ class FormSome extends Component {
           name="value"
           onChange={this.handleChange}
         />
-        <p onClick={() => this.addSome()}>Add</p>
+        <p className="who" onClick={() => this.addSome()}>Add</p>
       </div>
     );
   }

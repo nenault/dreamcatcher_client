@@ -106,8 +106,8 @@ class FormDream extends Component {
     // let { concepts } = this.state;
     const buttonStatus = this.state.isEditing === "edit" ? "Edit" : "Create";
     return (
-      <div>
-        <form className="Form" onSubmit={this.handleSubmit}>
+      <div className="one-dream">
+        <form className="form-dream" onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name</label>
           <input
             id="name"
@@ -116,7 +116,8 @@ class FormDream extends Component {
             name="name"
             onChange={this.handleChange}
           />
-          <h2>How do you feel?</h2>
+          <span>Hello {this.context.user.name}</span>
+          <h2>How do you feel this morning?</h2>
           <select
             id="feel"
             defaultValue="-1"
@@ -124,7 +125,7 @@ class FormDream extends Component {
             onChange={this.handleChange}
           >
             <option value="-1" disabled>
-              ...
+              ........................
             </option>
             <option value="Excited">Excited</option>
             <option value="Happy">Happy</option>
@@ -135,11 +136,11 @@ class FormDream extends Component {
             <option value="Scared">Scared</option>
             <option value="Angry">Angry</option>
             <option value="Upset">Upset</option>
-            <option value="Nervous">Nervous </option>
+            <option value="Nervous">Nervous</option>
           </select>
           <h2>What do you remember?</h2>
           {this.state.concepts.map((concept, i) => (
-            <div key={i} style={{ display: "flex" }}>
+            <div className="about-some" key={i} style={{ display: "flex" }}>
               About some
               <OneConcept
                 handleConcept={this.getConcept}
@@ -154,7 +155,7 @@ class FormDream extends Component {
 
           {/* <OneConcept id="1" handleConcept={this.addConcept} /> */}
           <p onClick={() => this.addConcept()}>Something else ?</p>
-          <button>{buttonStatus}</button>
+          <button className="btn-dream">{buttonStatus}</button>
         </form>
       </div>
     );

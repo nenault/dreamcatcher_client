@@ -29,17 +29,27 @@ class Dreams extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Dreams</h2>
+      <div className="one-dream">
+        <h1 className="dream">Dreamember</h1>
         <NavLink to={`/dreams/create`}>Create</NavLink>
         {this.state.dreams.map((dream) => (
           <React.Fragment key={dream._id}>
             <DreamCard id={dream._id} name={dream.name} />
-            <Link to={this.props} onClick={() => this.deleteOne(dream._id)}>
-              Delete
-            </Link>
-            <Link to={`/dreams/${dream._id}/edit`}>Edit</Link>
-            <Link to={`/dreams/${dream._id}/`}>See</Link>
+            <div className="dream-tools">
+              <Link className="tool" to={`/dreams/${dream._id}/`}>
+                <i className="fas fa-book-open"></i>
+              </Link>
+              <Link className="tool" to={`/dreams/${dream._id}/edit`}>
+                <i className="fas fa-pen-nib"></i>
+              </Link>
+              <Link
+                className="tool"
+                to={this.props}
+                onClick={() => this.deleteOne(dream._id)}
+              >
+                <i className="fas fa-times"></i>
+              </Link>
+            </div>
           </React.Fragment>
         ))}
       </div>

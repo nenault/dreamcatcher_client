@@ -41,7 +41,7 @@ class FormConcept extends Component {
       });
   };
 
-  updateDream = () => {
+  updateConcept = () => {
     const fd = new FormData();
 
     for (let key in this.state) {

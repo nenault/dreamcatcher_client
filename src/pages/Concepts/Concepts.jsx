@@ -29,8 +29,8 @@ class Concepts extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Concepts</h2>
+      <div className="one-dream">
+        <h1>Concepts</h1>
         <Link to={`/concepts/create`}>Create</Link>
         {this.state.concepts.map((concept) => (
           <React.Fragment key={concept._id}>

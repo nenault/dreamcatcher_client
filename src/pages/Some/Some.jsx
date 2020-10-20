@@ -96,8 +96,8 @@ class Some extends Component {
       (concepts) => concepts.concept === this.props.someType
     );
     return (
-      <div style={{ display: "flex" }}>
-        <span>Who ?</span>
+      <div>
+        <span className="who">From this list?</span>
         <select
           id="some"
           value={this.state.someValue}
@@ -116,7 +116,7 @@ class Some extends Component {
           onChange={this.handleChange}
         >
           <option value="" disabled>
-            ...
+            .............
           </option>
           {filteredSome.map((elm) => (
             <option value={elm._id} key={elm._id}>
@@ -124,7 +124,7 @@ class Some extends Component {
             </option>
           ))}
         </select>
-        <span onClick={() => this.addInput()}>or add</span>
+        <span className="who" onClick={() => this.addInput()}>or add new</span>
 
         <div>{this.state.addInput}</div>
         <div>{this.state.feeling}</div>

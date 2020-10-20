@@ -53,7 +53,7 @@ class OneConcept extends Component {
       id: id,
       type: event.target.value,
       some: this.state.someValue,
-      feeling: ""
+      feeling: "",
     });
     // this.state.some = <Some someType={this.state.someType} />;
   };
@@ -76,20 +76,20 @@ class OneConcept extends Component {
         id: this.state.id,
         type: this.state.someType,
         some: this.state.someValue,
-        feeling: ""
+        feeling: "",
       })
     );
   };
 
   getFeeling = (event) => {
     this.setState({ feelingValue: event.feelingValue }, () =>
-    this.props.handleConcept({
-      id: this.state.id,
-      type: this.state.someType,
-      some: this.state.someValue,
-      feeling: this.state.feelingValue
-    })
-  );
+      this.props.handleConcept({
+        id: this.state.id,
+        type: this.state.someType,
+        some: this.state.someValue,
+        feeling: this.state.feelingValue,
+      })
+    );
   };
 
   render() {
@@ -102,9 +102,10 @@ class OneConcept extends Component {
     if (!this.state.conceptsList) {
       return <div></div>;
     }
-   
-      return (
-        <div style={{ display: "flex" }}>
+
+    return (
+      <>
+        <div>
           <select
             id="concepts"
             defaultValue="-1"
@@ -120,7 +121,7 @@ class OneConcept extends Component {
             onChange={this.handleChange}
           >
             <option value="-1" disabled>
-              ...
+              ...........
             </option>
             {this.state.conceptsList.map((elm) => (
               <option value={elm._id} key={elm._id}>
@@ -128,31 +129,10 @@ class OneConcept extends Component {
               </option>
             ))}
           </select>
-          <div>{this.state.some}</div>
-          {/* <Some someType={this.state.someType}/> */}
-          {/* <input
-            style={{
-              visibility:
-                this.props.concepts[i].type.length === 0 ? "hidden" : "visible",
-            }}
-            id="conceptValue"
-            value={this.props.concepts[i].value}
-            type="text"
-            name="conceptValue"
-            onChange={this.handleChange}
-          /> */}
-          {/* <span
-            style={{
-              visibility:
-                this.props.concepts[i].type.length === 0 ? "hidden" : "visible",
-            }}
-            onClick={() => this.removeConcept(i)}
-          >
-            Delete
-          </span> */}
         </div>
-      );
-  
+        <div>{this.state.some}</div>
+      </>
+    );
   }
 }
 

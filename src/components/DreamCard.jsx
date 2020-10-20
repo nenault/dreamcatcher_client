@@ -3,7 +3,7 @@ import React from "react";
 const DreamCard = (props) => {
   return (
     <div>
-      <p>{props.name}</p>
+      <h2 className="dream-name">{props.name}</h2>
     </div>
   );
 };

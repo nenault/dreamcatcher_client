@@ -1,0 +1,165 @@
+.one-dream {
+  width: 100vw;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1.dream {
+  font-size: 50px;
+}
+
+.somes {
+  display: flex;
+  width: 90vw;
+  justify-content: center;
+}
+
+.some-item {
+  width: 30vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dream-title {
+  font-size: 50px;
+}
+
+.dream-type {
+  align-self: flex-start;
+}
+
+.dream-feeling {
+  width: 50%;
+  text-align: center;
+  font-size: 30px;
+}
+
+.dream-name {
+  font-size: 30px;
+}
+
+.dream-tools {
+  display: flex;
+}
+
+.tool {
+  margin-left: 10px;
+}
+
+.who {
+  margin:0 20px 0;
+}
+
+.form-dream {
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto-light', sans-serif;
+}
+
+.btn-dream {
+  width: 10vw;
+}
+
+#feel {
+  width: 16vw;
+  font-size: 20px;
+}
+
+#concepts {
+  width: 6vw;
+  font-size: 20px;
+}
+
+.about-some {
+  font-size: 20px;
+}
+
+#value {
+  padding-left: 10px;
+}
+
+#name {
+  padding-left: 10px;
+}
+
+/* .somes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.some-item {
+  border: solid 2px #000;
+  box-shadow: 0 6px 6px -6px #000;
+  display: inline-block;
+  flex: 1 1;
+  height: 40vh;
+  margin: 1vmin;
+  overflow: hidden;
+  position: relative;
+}
+
+.dream-title {
+  background-color: #ff925c;
+  color: whitesmoke;
+  border: solid 2px #000;
+  margin: 0;
+  padding: 3px 10px;
+  left: -8px;
+  position: absolute;
+  top: -2px;
+  transform: skew(-15deg);
+}
+
+.dream-feeling {
+  background-color: #ffdbd7;
+  border: solid 2px #000;
+  margin: 0;
+  padding: 3px 10px;
+  bottom: -2px;
+  position: absolute;
+  right: -6px;
+  transform: skew(-15deg);
+}
+
+h1.dream {
+  font-size: 40px;
+}
+
+.Excited {
+  background-image: radial-gradient(circle, #3e9302, #3e9302);
+}
+.Happy {
+  background-image: radial-gradient(circle, #3dbf32, #3dbf32);
+}
+.Contented {
+  background-image: radial-gradient(circle, #6ed76c, #6ed76c);
+}
+.Calm {
+  background-image: radial-gradient(circle, #cbf0f3, #cbf0f3);
+}
+.Bored {
+  background-image: radial-gradient(circle, #f3c6f5, #f3c6f5);
+}
+.Sad {
+  background-image: radial-gradient(circle, #2574bc, #2574bc);
+}
+.Scared {
+  background-image: radial-gradient(circle, #ffe62c, #ffe62c);
+}
+.Angry {
+  background-image: radial-gradient(circle, #fd0500, #fd0500);
+}
+.Upset {
+  background-image: radial-gradient(circle, #ff977d, #ff977d);
+}
+.Nervous {
+  background-image: radial-gradient(circle, #ffc780, #ffc780);
+}
+ */

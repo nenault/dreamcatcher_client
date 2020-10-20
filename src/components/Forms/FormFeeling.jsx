@@ -18,7 +18,7 @@ class FormFeeling extends Component {
   render() {
     return (
       <div>
-        <label htmlFor="feeling">Feeling</label>
+        <label className="who" htmlFor="feeling">And what did you think about it?</label>
         <input
           id="feeling"
           type="text"

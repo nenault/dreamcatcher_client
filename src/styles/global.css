@@ -7,7 +7,14 @@
 }
 
 html {
-  font-family: "Manrope", sans-serif;
+  font-family: 'Amatic SC', cursive;
+
+}
+
+select {
+  border:0px;
+  outline:0px;
+  background-color: white;
 }
 
 a {
