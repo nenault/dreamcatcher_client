@@ -66,7 +66,7 @@ class FormSome extends Component {
           name="value"
           onChange={this.handleChange}
         />
-        <p className="who" onClick={() => this.addSome()}>Add</p>
+        <p className="who" onClick={() => this.addSome()}> hop</p>
       </div>
     );
   }

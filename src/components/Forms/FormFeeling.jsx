@@ -16,9 +16,19 @@ class FormFeeling extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div>
-        <label className="who" htmlFor="feeling">And what did you think about it?</label>
+        <label
+          style={{
+            fontSize: "16px",
+            color: this.state.feeling.length === 0 ? "#FFF" : "#896fac",
+          }}
+          className="who"
+          htmlFor="feeling"
+        >
+          Does it make you think of anything in particular?
+        </label>
         <input
           id="feeling"
           type="text"

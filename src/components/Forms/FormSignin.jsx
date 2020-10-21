@@ -43,13 +43,16 @@ class FormSignin extends Component {
 
   render() {
     return (
-      <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <button>Submit</button>
-      </form>
+      <div className="one-dream">
+        <form className="form-login" onChange={this.handleChange} onSubmit={this.handleSubmit}>
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" name="email" />
+          <label htmlFor="password">Password</label>
+          <input type="password" id="password" name="password" />
+          <button>Submit</button>
+        </form>
+        Don't have an account? Register 
+      </div>
     );
   }
 }

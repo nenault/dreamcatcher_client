@@ -54,7 +54,12 @@ class Some extends Component {
 
   setFeeling = (event) => {
     this.setState({
-      feeling: <FormFeeling handleFeeling={this.addFeeling} />,
+      feeling: (
+        <FormFeeling
+          key={this.state.someValue}
+          handleFeeling={this.addFeeling}
+        />
+      ),
     });
   };
 
@@ -97,7 +102,25 @@ class Some extends Component {
     );
     return (
       <div>
-        <span className="who">From this list?</span>
+        <span
+          style={{
+            fontSize: "16px",
+            color: this.state.someValue.length === 0 ? "#FFF" : "#896fac",
+          }}
+          className="who"
+        >
+          That you already know?
+        </span>
+        <br />
+        <span
+          style={{
+            fontSize: "16px",
+            color: this.state.someValue.length === 0 ? "#FFF" : "#896fac",
+          }}
+          className="whos"
+        >
+          Oh yeah, it's{" "}
+        </span>
         <select
           id="some"
           value={this.state.someValue}
@@ -116,7 +139,7 @@ class Some extends Component {
           onChange={this.handleChange}
         >
           <option value="" disabled>
-            .............
+            ....................
           </option>
           {filteredSome.map((elm) => (
             <option value={elm._id} key={elm._id}>
@@ -124,7 +147,16 @@ class Some extends Component {
             </option>
           ))}
         </select>
-        <span className="who" onClick={() => this.addInput()}>or add new</span>
+        <span
+          style={{
+            fontSize: "16px",
+            color: this.state.someValue.length === 0 ? "#FFF" : "#896fac",
+          }}
+          className="who"
+          onClick={() => this.addInput()}
+        >
+          Nope, let me add it <i className="fas fa-plus"></i>
+        </span>
 
         <div>{this.state.addInput}</div>
         <div>{this.state.feeling}</div>

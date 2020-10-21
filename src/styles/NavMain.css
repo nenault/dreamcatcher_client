@@ -10,6 +10,7 @@
 .NavMain .nav-list {
   margin-left: auto;
   display: flex;
+  color:#896fac;
 }
 
 .NavMain .nav-list li:not(:last-child) {

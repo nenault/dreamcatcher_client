@@ -121,7 +121,7 @@ class OneConcept extends Component {
             onChange={this.handleChange}
           >
             <option value="-1" disabled>
-              ...........
+              ..................
             </option>
             {this.state.conceptsList.map((elm) => (
               <option value={elm._id} key={elm._id}>

@@ -7,14 +7,23 @@
 }
 
 html {
-  font-family: 'Amatic SC', cursive;
+  font-family: "Noto Sans JP", sans-serif;
+}
 
+h3.logo {
+  color: #eb10db;
+  letter-spacing: 1px;
+}
+
+body {
+  background-color: #15041e;
+  color: white;
 }
 
 select {
-  border:0px;
-  outline:0px;
-  background-color: white;
+  border: 0px;
+  outline: 0px;
+  background-color: #15041e;
 }
 
 a {
@@ -25,3 +34,36 @@ a {
 ul {
   list-style-type: none;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
+.footer-list {
+  display: flex;
+  justify-content: space-around;
+  height: 6vh;
+  background-color: #15041e;
+  padding-top: 10px !important;
+}
+
+.footer-list li {
+  width: 33vw;
+  text-align: center;
+}
+
+.underline {
+  border-bottom: 1px solid #896fac;
+  padding-bottom: 8px;
+  color: #896fac;
+  width: 100%;
+}
+
+.underline.active {
+  border-bottom: 1px solid #743ece;
+  padding-bottom: 8px;
+  color: white;
+}
+

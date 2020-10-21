@@ -18,11 +18,7 @@ h1.dream {
 
 .some-item {
   width: 30vw;
-  height: 50vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .dream-title {
@@ -30,12 +26,12 @@ h1.dream {
 }
 
 .dream-type {
-  align-self: flex-start;
+  color: #743ece;
 }
 
 .dream-feeling {
-  width: 50%;
-  text-align: center;
+  /* width: 50%; */
+
   font-size: 30px;
 }
 
@@ -52,14 +48,18 @@ h1.dream {
 }
 
 .who {
-  margin:0 20px 0;
+  margin: 0 20px 0;
+}
+
+.whos {
+  margin-top: 10px;
 }
 
 .form-dream {
   width: 60vw;
   display: flex;
   flex-direction: column;
-  font-family: 'Roboto-light', sans-serif;
+  font-family: "Roboto-light", sans-serif;
 }
 
 .btn-dream {
@@ -69,23 +69,202 @@ h1.dream {
 #feel {
   width: 16vw;
   font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-top: 14px;
 }
 
 #concepts {
   width: 6vw;
   font-size: 20px;
+  font-weight: bold;
+  color: white;
 }
 
 .about-some {
   font-size: 20px;
+  flex-direction: column;
+  margin-top: 10px;
 }
 
 #value {
   padding-left: 10px;
+  margin-right: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+#feeling {
+  padding-left: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+  font-weight: bold;
+}
+
+.add-some {
+  margin-right: 20px;
+}
+#some {
+  font-weight: bold;
+  color: white;
 }
 
 #name {
   padding-left: 10px;
+}
+
+.dream-data {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+
+.dream-thought {
+  font-size: 14px;
+  color: #896fac;
+}
+
+.rv-xy-plot__series--label-text {
+  fill: white !important;
+}
+.rv-xy-plot__axis__tick__text {
+  fill: white !important;
+}
+
+q,
+blockquote {
+  quotes: "“" "”" "‘" "’";
+  font-style: italic;
+}
+
+q:before,
+blockquote:before {
+  content: open-quote;
+}
+
+q:after,
+blockquote:after {
+  content: close-quote;
+}
+
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+  color: #eb10db;
+  font-size: 1.2em;
+}
+
+.dreams-fulllist {
+  display: flex;
+  flex-direction: column;
+}
+
+h3.dream-name {
+  font-size: 18px;
+}
+
+@media (max-width: 400px) {
+  .some-item {
+    width: 90vw;
+    /* height: 36vh; */
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    /* align-items: center; */
+    /* justify-content: center; */
+  }
+
+  .one-dream {
+    width: 100vw;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dream-title {
+    font-size: 28px;
+  }
+
+  .dream-feeling {
+    font-size: 18px;
+  }
+
+  .dream-img {
+    width: 28vw;
+  }
+  .somes {
+    display: flex;
+    width: 90vw;
+    padding: 0 16px;
+    justify-content: center;
+    flex-direction: column;
+  }
+  h3.logo {
+    font-size: 30px;
+  }
+  .form-dream {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2.question {
+    margin-top: 20px;
+    font-size: 17px;
+  }
+
+  .btn-dream {
+    width: 30vw;
+    margin-top: 10px;
+  }
+
+  #feel {
+    width: 60vw;
+  }
+
+  #concepts {
+    width: 26vw;
+    font-size: 20px;
+  }
+  h1.dream {
+    font-size: 30px;
+    text-align: center;
+  }
+  .who {
+    margin: 0 0 0;
+  }
+
+  #some {
+    font-weight: bold;
+    width: 40vw;
+  }
+
+  #value {
+    padding-left: 10px;
+    width: 60vw;
+    margin-right: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+  }
+
+  #feeling {
+    width: 80vw;
+  }
+
+  .form-login {
+    width: 80vw;
+  }
+
+  #email,
+  #password {
+    width: 100%;
+  }
+  .dreams-list {
+    font-size: 26px;
+    text-align: center;
+  }
 }
 
 /* .somes-container {

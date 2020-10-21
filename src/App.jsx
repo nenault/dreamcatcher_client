@@ -16,6 +16,7 @@ import CreateDream from "./pages/Dreams/CreateDream";
 import CreateConcept from "./pages/Concepts/CreateConcept";
 import CreateSome from "./pages/Some/CreateSome";
 import Some from "./pages/Some/Some";
+import Footer from "./components/Footer"
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <ProtectedAdminRoute exact path="/some/create" component={CreateSome} />
         {/* <ProtectedAdminRoute exact path="/some/:id/edit" component={EditSome} /> */}
       </Switch>
+      <Footer />
     </div>
   );
 }

@@ -28,30 +28,93 @@ class Dreams extends Component {
   }
 
   render() {
+    const withoutLast = this.state.dreams;
+    withoutLast.reverse()
+    const lastOne = this.state.dreams[0];
+    withoutLast.shift();
+    
+    // console.log(lastOne);
     return (
       <div className="one-dream">
-        <h1 className="dream">Dreamember</h1>
-        <NavLink to={`/dreams/create`}>Create</NavLink>
-        {this.state.dreams.map((dream) => (
-          <React.Fragment key={dream._id}>
-            <DreamCard id={dream._id} name={dream.name} />
-            <div className="dream-tools">
-              <Link className="tool" to={`/dreams/${dream._id}/`}>
-                <i className="fas fa-book-open"></i>
-              </Link>
-              <Link className="tool" to={`/dreams/${dream._id}/edit`}>
-                <i className="fas fa-pen-nib"></i>
-              </Link>
-              <Link
-                className="tool"
-                to={this.props}
-                onClick={() => this.deleteOne(dream._id)}
+        <h1 className="dreams-list">Here are the list of all your dreams</h1>
+        {lastOne && (
+          <>
+            <p
+              style={{
+                marginTop: "20px",
+              }}
+            >
+              After the last one, you woke up{" "}
+              <span
+                style={{
+                  color: "#eb10db",
+                }}
               >
-                <i className="fas fa-times"></i>
+                {lastOne.feel.toLowerCase()}
+              </span>
+              &nbsp;and you decided to name it <q>{lastOne.name}</q>
+              ,&nbsp;remember?
+              <br />
+              You can go and{" "}
+              <Link
+                style={{
+                  color: "#896fac",
+                }}
+                to={`/dreams/${lastOne._id}/`}
+              >
+                read it
               </Link>
-            </div>
-          </React.Fragment>
-        ))}
+              , or{" "}
+              <span
+                style={{
+                  color: "#896fac",
+                }}
+                onClick={() => this.deleteOne(lastOne._id)}
+              >
+                delete it
+              </span>{" "}
+              if necessary.
+            </p>
+            <p
+              style={{
+                marginTop: "20px",
+              }}
+            >
+              And of course, here is the list of all the others:
+            </p>
+          </>
+        )}
+        <div className="dreams-fulllist">
+          {withoutLast.map((dream) => (
+            <React.Fragment key={dream._id}>
+              <div className="dream-tools">
+                - <DreamCard id={dream._id} name={dream.name} />
+                <Link
+                  style={{
+                    color: "#896fac",
+                  }}
+                  className="tool"
+                  to={`/dreams/${dream._id}/`}
+                >
+                 read
+                </Link>
+                {/* <Link className="tool" to={`/dreams/${dream._id}/edit`}>
+                <i className="fas fa-pen-nib"></i>
+              </Link> */}
+                <Link
+                  style={{
+                    color: "#896fac",
+                  }}
+                  className="tool"
+                  to={this.props}
+                  onClick={() => this.deleteOne(dream._id)}
+                >
+                 delete
+                </Link>
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     );
   }

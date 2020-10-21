@@ -105,9 +105,11 @@ class Profile extends Component {
         y: data.reduce(function (n, feel) {
           return n + (feel == item);
         }, 0),
-        label: String(data.reduce(function (n, feel) {
-          return n + (feel == item);
-        }, 0)),
+        label: String(
+          data.reduce(function (n, feel) {
+            return n + (feel == item);
+          }, 0)
+        ),
       });
 
       finalArr.sort((b, a) =>
@@ -145,10 +147,15 @@ class Profile extends Component {
     for (const [index, item] of cleanedSomes.entries()) {
       // console.log(item.concepts);
       finalArr.splice(index, 1, {
-        some: item,
-        count: data.reduce(function (n, dream) {
+        x: item,
+        y: data.reduce(function (n, dream) {
           return n + (dream.some == item);
         }, 0),
+        label: String(
+          data.reduce(function (n, dream) {
+            return n + (dream.some == item);
+          }, 0)
+        ),
       });
 
       finalArr.sort((b, a) =>
@@ -157,7 +164,7 @@ class Profile extends Component {
 
       // this.setState({ somes: dataArr });
     }
-
+    // finalArr
     this.setState({ someOne: finalArr });
     // var numBoys = data.reduce(function (n, dream) {
     //   return n + (dream.some == "Emily");
@@ -185,10 +192,15 @@ class Profile extends Component {
     for (const [index, item] of cleanedSomes.entries()) {
       // console.log(item.concepts);
       finalArr.splice(index, 1, {
-        some: item,
-        count: data.reduce(function (n, dream) {
+        x: item,
+        y: data.reduce(function (n, dream) {
           return n + (dream.some == item);
         }, 0),
+        label: String(
+          data.reduce(function (n, dream) {
+            return n + (dream.some == item);
+          }, 0)
+        ),
       });
 
       // console.log(finalArr);
@@ -225,10 +237,15 @@ class Profile extends Component {
     for (const [index, item] of cleanedSomes.entries()) {
       // console.log(item.concepts);
       finalArr.splice(index, 1, {
-        some: item,
-        count: data.reduce(function (n, dream) {
+        x: item,
+        y: data.reduce(function (n, dream) {
           return n + (dream.some == item);
         }, 0),
+        label: String(
+          data.reduce(function (n, dream) {
+            return n + (dream.some == item);
+          }, 0)
+        ),
       });
 
       // console.log(finalArr);
@@ -284,55 +301,77 @@ class Profile extends Component {
 
     return (
       <div className="one-dream">
-        <div>
-          <h1>{this.context.user.name}'s profile</h1>
-        </div>
-        <XYPlot height={200} width={200} xType="ordinal">
-          <VerticalBarSeries data={this.state.countedFeels} />
-          <XAxis />
-          <LabelSeries data={this.state.countedFeels} />
-        </XYPlot>
         <div
-          className="lists-somes"
           style={{
-            display: "flex",
-            width: "40vw",
-            justifyContent: "space-around",
+            paddingBottom: "50px",
           }}
         >
+          <h1 className="dream">Here's what you dream of</h1>
+        </div>
+        You feel
+        <XYPlot height={200} width={300} xType="ordinal" color="#743ece">
+          <VerticalBarSeries data={this.state.countedFeels.slice(0, 3)} />
+          <XAxis />
+          <LabelSeries data={this.state.countedFeels.slice(0, 3)} />
+        </XYPlot>
+        <div className="lists-somes">
           <div className="list-one">
-            PEOPLE
-            <ul>
-              {this.state.someOne.slice(0, 3).map((someone) => (
+            People
+            {/* <ul>
+              {this.state.someOne.slice(0, 5).map((someone) => (
                 <li key={someone.some}>
                   {someone.some} in {someone.count} dreams
                 </li>
               ))}
-            </ul>
+            </ul> */}
+            <XYPlot height={200} width={300} xType="ordinal" color="#eb10db">
+              <VerticalBarSeries data={this.state.someOne.slice(0, 3)} />
+              <XAxis />
+              <LabelSeries
+                data={this.state.someOne.slice(0, 3)}
+                color="white"
+              />
+            </XYPlot>
           </div>
           <div className="list-where">
-            PLACES
-            <ul>
-              {this.state.someWhere.slice(0, 3).map((somewhere) => (
+            Places
+            {/* <ul>
+              {this.state.someWhere.slice(0, 5).map((somewhere) => (
                 <li key={somewhere.some}>
                   {somewhere.some} in {somewhere.count} dreams
                 </li>
               ))}
-            </ul>
+            </ul> */}
+            <XYPlot height={200} width={300} xType="ordinal" color="#eb10db">
+              <VerticalBarSeries data={this.state.someWhere.slice(0, 3)} />
+              <XAxis />
+              <LabelSeries
+                data={this.state.someWhere.slice(0, 3)}
+                color="white"
+              />
+            </XYPlot>
           </div>
           <div className="list-thing">
-            THINGS
-            <ul>
-              {this.state.someThing.slice(0, 3).map((something) => (
+            Things
+            {/* <ul>
+              {this.state.someThing.slice(0, 5).map((something) => (
                 <li key={something.some}>
                   {something.some} in {something.count} dreams
                 </li>
               ))}
-            </ul>
+            </ul> */}
+            <XYPlot height={200} width={300} xType="ordinal" color="#eb10db">
+              <VerticalBarSeries data={this.state.someThing.slice(0, 3)} />
+              <XAxis />
+              <LabelSeries
+                data={this.state.someThing.slice(0, 3)}
+                color="white"
+              />
+            </XYPlot>
           </div>
         </div>
 
-        <form className="form-dream" onSubmit={this.handleSubmit}>
+        {/* <form className="form-dream" onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name</label>
           <input
             id="name"
@@ -358,7 +397,7 @@ class Profile extends Component {
           />
 
           <button className="btn-dream">Update</button>
-        </form>
+        </form> */}
       </div>
     );
   }

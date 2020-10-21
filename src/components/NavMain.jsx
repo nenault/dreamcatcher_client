@@ -22,10 +22,10 @@ const NavMain = (props) => {
   return (
     <nav className="NavMain">
       <NavLink exact to="/">
-        <h3 className="logo">Dreamcatchu</h3>
+        <h3 className="logo">Reve•le</h3>
       </NavLink>
       <ul className="nav-list">
-        {context.isLoggedIn && (
+        {/* {context.isLoggedIn && (
           <React.Fragment>
             <li>
               <NavLink to="/dreams">Dreams</NavLink>
@@ -38,14 +38,9 @@ const NavMain = (props) => {
               <NavLink to="/concepts">Concepts</NavLink>
             </li>
           </React.Fragment>
-        )}
+        )} */}
         {context.isLoggedIn && (
           <React.Fragment>
-            <li>
-              <NavLink to="/profile">
-                {context.user && context.user.name}
-              </NavLink>
-            </li>
             <li>
               <p onClick={handleLogout}>Logout</p>
             </li>
@@ -55,9 +50,6 @@ const NavMain = (props) => {
           <React.Fragment>
             <li>
               <NavLink to="/signin">Log in</NavLink>
-            </li>
-            <li>
-              <NavLink to="/signup">Create account</NavLink>
             </li>
           </React.Fragment>
         )}
