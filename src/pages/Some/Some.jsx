@@ -105,6 +105,7 @@ class Some extends Component {
         <span
           style={{
             fontSize: "16px",
+            marginTop: "20px",
             color: this.state.someValue.length === 0 ? "#FFF" : "#896fac",
           }}
           className="who"
@@ -138,9 +139,7 @@ class Some extends Component {
           name="some"
           onChange={this.handleChange}
         >
-          <option value="" disabled>
-            ....................
-          </option>
+          <option value="" disabled></option>
           {filteredSome.map((elm) => (
             <option value={elm._id} key={elm._id}>
               {elm.value}

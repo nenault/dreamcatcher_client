@@ -35,7 +35,6 @@ h1.dream {
   font-size: 30px;
 }
 
-
 .dream-name {
   font-size: 30px;
 }
@@ -94,7 +93,7 @@ h1.dream {
   border: none;
   background-color: #15041e;
   border-bottom: 1px solid #896fac;
-  color:white;
+  color: white;
 }
 
 #feeling {
@@ -103,7 +102,7 @@ h1.dream {
   font-weight: bold;
   background-color: #15041e;
   border-bottom: 1px solid #896fac;
-  color:white;
+  color: white;
 }
 
 .add-some {
@@ -146,7 +145,7 @@ h1.dream {
   border-bottom: 1px solid #896fac;
   margin-top: 20px;
   color: white;
-  margin-bottom:20px;
+  margin-bottom: 20px;
 }
 
 #password::placeholder {
@@ -274,13 +273,21 @@ h3.dream-name {
   }
 
   #feel {
-    width: 60vw;
+    width: 80vw;
+    text-align: center;
+    text-align-last: center;
+    border-bottom: 1px solid #743ece;
   }
 
   #concepts {
-    width: 26vw;
+    width: 80vw;
     font-size: 20px;
+    text-align: center;
+    text-align-last: center;
+    border-bottom: 1px solid #743ece;
+    margin-bottom: 20px;
   }
+
   h1.dream {
     font-size: 30px;
     text-align: center;
@@ -291,8 +298,12 @@ h3.dream-name {
 
   #some {
     font-weight: bold;
-    width: 40vw;
+    width: 50vw;
+    border-bottom: 1px solid #743ece;
+    margin-bottom: 10px;
+    margin-top: 20px;
   }
+
 
   #value {
     padding-left: 10px;
@@ -301,7 +312,7 @@ h3.dream-name {
     border: none;
     background-color: #15041e;
     border-bottom: 1px solid #896fac;
-    color:white;
+    color: white;
   }
 
   #feeling {

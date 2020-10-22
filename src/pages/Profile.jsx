@@ -129,7 +129,7 @@ class Profile extends Component {
   };
 
   countOne = () => {
-    const data = this.state.somes.filter((some) => some.type === "one");
+    const data = this.state.somes.filter((some) => some.type === "Someone");
 
     const listOfSomes = [];
 
@@ -174,7 +174,7 @@ class Profile extends Component {
   };
 
   countThing = () => {
-    const data = this.state.somes.filter((some) => some.type === "thing");
+    const data = this.state.somes.filter((some) => some.type === "Something");
 
     const listOfSomes = [];
 
@@ -219,7 +219,7 @@ class Profile extends Component {
   };
 
   countWhere = () => {
-    const data = this.state.somes.filter((some) => some.type === "where");
+    const data = this.state.somes.filter((some) => some.type === "Somewhere");
 
     const listOfSomes = [];
 

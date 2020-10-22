@@ -144,7 +144,6 @@ class FormDream extends Component {
             onChange={this.handleChange}
           >
             <option value="-1" disabled>
-              ...............................
             </option>
             <option value="Excited">Excited</option>
             <option value="Happy">Happy</option>
@@ -184,7 +183,7 @@ class FormDream extends Component {
                         : "#896fac",
                   }}
                 >
-                  It was about some
+                  It was about...
                 </p>
                 <OneConcept
                   handleConcept={this.getConcept}
@@ -266,7 +265,7 @@ class FormDream extends Component {
                   }}
                   className="btn-dream"
                 >
-                  {buttonStatus}&nbsp;<i class="fas fa-smile"></i>
+                  {buttonStatus}&nbsp;<i className="fas fa-smile"></i>
                 </button>
               </div>
             </div>

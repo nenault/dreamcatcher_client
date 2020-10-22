@@ -17,7 +17,12 @@ class OneDream extends Component {
     apiHandler
       .getOne("/api/dreams/", this.props.match.params.id)
       .then((apiRes) => {
-        if (apiRes.data.isProtected === true && this.context.isLoggedIn === false) {
+        if (this.context.isLoading) {
+          return null;
+        } else if (
+          apiRes.data.isProtected === true &&
+          this.context.isLoggedIn === false
+        ) {
           console.log(this.context);
           this.props.history.push("/signin");
         } else {
@@ -142,11 +147,13 @@ class OneDream extends Component {
                   alt={concept.some}
                 />
                 <div className="dream-data">
-                  {concept.type === "one" && <p className="dream-type">Who?</p>}
-                  {concept.type === "thing" && (
+                  {concept.type === "Someone" && (
+                    <p className="dream-type">Who?</p>
+                  )}
+                  {concept.type === "Something" && (
                     <p className="dream-type">What?</p>
                   )}
-                  {concept.type === "where" && (
+                  {concept.type === "Somewhere" && (
                     <p className="dream-type">Where?</p>
                   )}
                   <h3 className="dream-title">{concept.some}</h3>

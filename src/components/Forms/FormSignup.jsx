@@ -54,7 +54,7 @@ class FormSignup extends Component {
           {/* <label htmlFor="password">Password</label> */}
           <input placeholder="Password" type="password" id="password" name="password" />
           <button className="btn-dream">
-            Signup&nbsp;<i class="fas fa-smile"></i>
+            Signup&nbsp;<i className="fas fa-smile"></i>
           </button>
         </form>
       </div>

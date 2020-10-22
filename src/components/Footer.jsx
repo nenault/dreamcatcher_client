@@ -14,13 +14,13 @@ const Footer = (props) => {
 
           <React.Fragment>
             <li>
-              <NavLink className="underline" to="/dreams/create">Write</NavLink>
+              <NavLink exact className="underline" to="/dreams/create">Write</NavLink>
             </li>
           </React.Fragment>
  
           <React.Fragment>
             <li>
-              <NavLink className="underline" to="/dreams">Dreams</NavLink>
+              <NavLink exact className="underline" to="/dreams">Dreams</NavLink>
             </li>
           </React.Fragment>
 
