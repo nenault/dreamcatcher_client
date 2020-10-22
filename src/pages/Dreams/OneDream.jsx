@@ -1,21 +1,33 @@
 import React, { Component } from "react";
 import apiHandler from "../../api/apiHandler";
 import dream from "../../styles/dream.css";
+import { withRouter } from "react-router-dom";
+import { UserContext } from "../../components/Auth/UserContext";
 
 class OneDream extends Component {
+  static contextType = UserContext;
+
   state = {
     dream: null,
     concepts: [],
-    isProtected: true,
+    isProtected: "",
   };
 
   componentDidMount() {
     apiHandler
       .getOne("/api/dreams/", this.props.match.params.id)
       .then((apiRes) => {
-        //  console.log(apiRes.data);
-        this.setState({ dream: apiRes.data });
-        this.buildDream(apiRes.data.concepts);
+        if (apiRes.data.isProtected === true && this.context.isLoggedIn === false) {
+          console.log(this.context);
+          this.props.history.push("/signin");
+        } else {
+          console.log(this.context);
+          this.setState({
+            dream: apiRes.data,
+            isProtected: apiRes.data.isProtected,
+          });
+          this.buildDream(apiRes.data.concepts);
+        }
       })
       .catch((apiErr) => {
         console.log(apiErr);
@@ -62,12 +74,12 @@ class OneDream extends Component {
   share = (event) => {
     // console.log(this.state.dream.isProtected);
 
-    const dreamTemp = this.state.dream;
-    dreamTemp.isProtected = false
-    
+    // const dreamTemp = this.state.dream;
+    // dreamTemp.isProtected = false
+
     this.setState(
       {
-        dream: dreamTemp,
+        isProtected: { isProtected: "false" },
       },
       () => this.update()
     );
@@ -78,7 +90,7 @@ class OneDream extends Component {
     apiHandler
       .updateOne(
         "/api/dreams/" + this.props.match.params.id,
-        this.state.dream
+        this.state.isProtected
       )
       .then((apiRes) => {
         console.log(apiRes);
@@ -90,6 +102,7 @@ class OneDream extends Component {
 
   render() {
     // console.log(this.state.concepts);
+    // console.log(this.state.isProtected);
 
     if (!this.state.dream) {
       return <div></div>;
@@ -140,6 +153,7 @@ class OneDream extends Component {
                   {concept.feeling && (
                     <p className="dream-feeling">
                       <span className="dream-thought">And I thought:</span>{" "}
+                      <br />
                       <q>
                         <i>{concept.feeling}</i>
                       </q>
@@ -156,4 +170,4 @@ class OneDream extends Component {
   }
 }
 
-export default OneDream;
+export default withRouter(OneDream);

@@ -14,7 +14,7 @@ const Footer = (props) => {
 
           <React.Fragment>
             <li>
-              <NavLink className="underline" to="/dreams/create">Share</NavLink>
+              <NavLink className="underline" to="/dreams/create">Write</NavLink>
             </li>
           </React.Fragment>
  

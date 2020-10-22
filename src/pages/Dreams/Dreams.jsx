@@ -33,7 +33,7 @@ class Dreams extends Component {
     const lastOne = this.state.dreams[0];
     withoutLast.shift();
     
-    // console.log(lastOne);
+    //  console.log(this.state.dreams[1]);
     return (
       <div className="one-dream">
         <h1 className="dreams-list">Here are the list of all your dreams</h1>
@@ -110,7 +110,13 @@ class Dreams extends Component {
                   onClick={() => this.deleteOne(dream._id)}
                 >
                  delete
-                </Link>
+                </Link>&nbsp;
+                {dream.isProtected === true && (
+                    <p className="dream-type">private</p>
+                  )}
+                  {dream.isProtected === false && (
+                    <p className="dream-type">public</p>
+                  )}
               </div>
             </React.Fragment>
           ))}
