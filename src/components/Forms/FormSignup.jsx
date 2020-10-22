@@ -57,6 +57,14 @@ class FormSignup extends Component {
             Signup&nbsp;<i className="fas fa-smile"></i>
           </button>
         </form>
+        <img
+          style={{
+            width: "60vw",
+            marginTop: "30px",
+          }}
+          src="https://res.cloudinary.com/ddwcgukvk/image/upload/v1603395922/rosace_mjgilk.png"
+          alt="rosace"
+        />
       </div>
     );
   }

@@ -84,6 +84,14 @@ class FormSignin extends Component {
             Please register
           </Link>
         </span>
+        <img
+          style={{
+            width: "60vw",
+            marginTop: "30px",
+          }}
+          src="https://res.cloudinary.com/ddwcgukvk/image/upload/v1603395922/rosace_mjgilk.png"
+          alt="rosace"
+        />
       </div>
     );
   }

@@ -23,7 +23,7 @@ class OneDream extends Component {
           apiRes.data.isProtected === true &&
           this.context.isLoggedIn === false
         ) {
-          console.log(this.context);
+          // console.log(this.context);
           this.props.history.push("/signin");
         } else {
           console.log(this.context);
@@ -81,13 +81,21 @@ class OneDream extends Component {
 
     // const dreamTemp = this.state.dream;
     // dreamTemp.isProtected = false
-
-    this.setState(
-      {
-        isProtected: { isProtected: "false" },
-      },
-      () => this.update()
-    );
+    if (this.state.isProtected === true) {
+      this.setState(
+        {
+          isProtected: { isProtected: "false" },
+        },
+        () => this.update()
+      );
+    } else {
+      this.setState(
+        {
+          isProtected: { isProtected: "true" },
+        },
+        () => this.update()
+      );
+    }
   };
 
   update = (event) => {
@@ -98,7 +106,7 @@ class OneDream extends Component {
         this.state.isProtected
       )
       .then((apiRes) => {
-        console.log(apiRes);
+        // console.log(apiRes);
       })
       .catch((error) => {
         console.log(error);
@@ -171,7 +179,18 @@ class OneDream extends Component {
             </React.Fragment>
           ))}
         </div>
-        <span onClick={() => this.share()}>Share this dream</span>
+        <span
+          style={{
+            marginTop: "20px",
+          }}
+          onClick={() => this.share()}
+        >
+          Share this dream&nbsp;&nbsp;&nbsp;
+          <label className="switch">
+            <input type="checkbox" onChange={this.share} />
+            <span onClick={() => this.share()} className="slider round"></span>
+          </label>
+        </span>
       </div>
     );
   }

@@ -303,20 +303,32 @@ class Profile extends Component {
       <div className="one-dream">
         <div
           style={{
-            paddingBottom: "50px",
+            paddingBottom: "30px",
           }}
         >
           <h1 className="dream">Here's what you dream of</h1>
         </div>
-        You feel
-        <XYPlot height={200} width={300} xType="ordinal" color="#743ece">
-          <VerticalBarSeries data={this.state.countedFeels.slice(0, 3)} />
-          <XAxis />
-          <LabelSeries data={this.state.countedFeels.slice(0, 3)} />
-        </XYPlot>
+        <span className="charts-title">Feelings</span>
+        <span
+          style={{
+            marginRight: "30px",
+          }}
+        >
+          <XYPlot height={200} width={300} xType="ordinal" color="#743ece">
+            <VerticalBarSeries data={this.state.countedFeels.slice(0, 3)} />
+            <XAxis />
+            <LabelSeries data={this.state.countedFeels.slice(0, 3)} />
+          </XYPlot>
+        </span>
         <div className="lists-somes">
-          <div className="list-one">
-            People
+          <span className="charts-title">People</span>
+          <div
+            style={{
+              marginRight: "30px",
+              marginBottom: "30px",
+            }}
+            className="list-one"
+          >
             {/* <ul>
               {this.state.someOne.slice(0, 5).map((someone) => (
                 <li key={someone.some}>
@@ -324,6 +336,7 @@ class Profile extends Component {
                 </li>
               ))}
             </ul> */}
+
             <XYPlot height={200} width={300} xType="ordinal" color="#eb10db">
               <VerticalBarSeries data={this.state.someOne.slice(0, 3)} />
               <XAxis />
@@ -333,8 +346,14 @@ class Profile extends Component {
               />
             </XYPlot>
           </div>
-          <div className="list-where">
-            Places
+          <span className="charts-title">Places</span>
+          <div
+            style={{
+              marginRight: "30px",
+              marginBottom: "30px",
+            }}
+            className="list-where"
+          >
             {/* <ul>
               {this.state.someWhere.slice(0, 5).map((somewhere) => (
                 <li key={somewhere.some}>
@@ -342,6 +361,7 @@ class Profile extends Component {
                 </li>
               ))}
             </ul> */}
+
             <XYPlot height={200} width={300} xType="ordinal" color="#eb10db">
               <VerticalBarSeries data={this.state.someWhere.slice(0, 3)} />
               <XAxis />
@@ -351,8 +371,13 @@ class Profile extends Component {
               />
             </XYPlot>
           </div>
-          <div className="list-thing">
-            Things
+          <span className="charts-title">Things</span>
+          <div
+            style={{
+              marginRight: "30px",
+            }}
+            className="list-thing"
+          >
             {/* <ul>
               {this.state.someThing.slice(0, 5).map((something) => (
                 <li key={something.some}>
@@ -370,7 +395,6 @@ class Profile extends Component {
             </XYPlot>
           </div>
         </div>
-
         {/* <form className="form-dream" onSubmit={this.handleSubmit}>
           <label htmlFor="name">Name</label>
           <input

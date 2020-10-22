@@ -29,10 +29,10 @@ class Dreams extends Component {
 
   render() {
     const withoutLast = this.state.dreams;
-    withoutLast.reverse()
+    withoutLast.reverse();
     const lastOne = this.state.dreams[0];
     withoutLast.shift();
-    
+
     //  console.log(this.state.dreams[1]);
     return (
       <div className="one-dream">
@@ -87,36 +87,41 @@ class Dreams extends Component {
         <div className="dreams-fulllist">
           {withoutLast.map((dream) => (
             <React.Fragment key={dream._id}>
-              <div className="dream-tools">
-                - <DreamCard id={dream._id} name={dream.name} />
-                <Link
-                  style={{
-                    color: "#896fac",
-                  }}
-                  className="tool"
-                  to={`/dreams/${dream._id}/`}
-                >
-                 read
-                </Link>
-                {/* <Link className="tool" to={`/dreams/${dream._id}/edit`}>
+              <div
+                style={{
+                  marginTop: "12px",
+                }}
+                className="dream-tools"
+              >
+                {dream.isProtected === true && <i className="fas fa-lock"></i>}
+                {dream.isProtected === false && (
+                  <i className="fas fa-lock-open"></i>
+                )}{" "}
+                <DreamCard id={dream._id} name={dream.name} />
+                <div>
+                  <Link
+                    style={{
+                      color: "#896fac",
+                    }}
+                    className="tool"
+                    to={`/dreams/${dream._id}/`}
+                  >
+                    read
+                  </Link>
+                  {/* <Link className="tool" to={`/dreams/${dream._id}/edit`}>
                 <i className="fas fa-pen-nib"></i>
               </Link> */}
-                <Link
-                  style={{
-                    color: "#896fac",
-                  }}
-                  className="tool"
-                  to={this.props}
-                  onClick={() => this.deleteOne(dream._id)}
-                >
-                 delete
-                </Link>&nbsp;
-                {dream.isProtected === true && (
-                    <p className="dream-type">private</p>
-                  )}
-                  {dream.isProtected === false && (
-                    <p className="dream-type">public</p>
-                  )}
+                  <Link
+                    style={{
+                      color: "#896fac",
+                    }}
+                    className="tool"
+                    to={this.props}
+                    onClick={() => this.deleteOne(dream._id)}
+                  >
+                    delete
+                  </Link>
+                </div>
               </div>
             </React.Fragment>
           ))}
