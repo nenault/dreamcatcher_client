@@ -35,6 +35,7 @@ h1.dream {
   font-size: 30px;
 }
 
+
 .dream-name {
   font-size: 30px;
 }
@@ -91,14 +92,18 @@ h1.dream {
   padding-left: 10px;
   margin-right: 10px;
   border: none;
-  border-bottom: 1px solid black;
+  background-color: #15041e;
+  border-bottom: 1px solid #896fac;
+  color:white;
 }
 
 #feeling {
   padding-left: 10px;
   border: none;
-  border-bottom: 1px solid black;
   font-weight: bold;
+  background-color: #15041e;
+  border-bottom: 1px solid #896fac;
+  color:white;
 }
 
 .add-some {
@@ -111,8 +116,42 @@ h1.dream {
 
 #name {
   padding-left: 10px;
+  background-color: #15041e;
+  border: 0;
+  border-bottom: 1px solid #896fac;
+  color: white;
 }
 
+#name::placeholder {
+  color: white;
+}
+
+#email {
+  padding-left: 10px;
+  background-color: #15041e;
+  border: 0;
+  border-bottom: 1px solid #896fac;
+  margin-top: 20px;
+  color: white;
+}
+
+#email::placeholder {
+  color: white;
+}
+
+#password {
+  padding-left: 10px;
+  background-color: #15041e;
+  border: 0;
+  border-bottom: 1px solid #896fac;
+  margin-top: 20px;
+  color: white;
+  margin-bottom:20px;
+}
+
+#password::placeholder {
+  color: white;
+}
 .dream-data {
   display: flex;
   flex-direction: column;
@@ -140,6 +179,20 @@ blockquote {
 q:before,
 blockquote:before {
   content: open-quote;
+}
+
+.btn-dream {
+  background-color: #6c41be;
+  border: none;
+  color: white;
+  border-radius: 30px;
+  padding: 6px 8px;
+  align-self: flex-end;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
 }
 
 q:after,
@@ -246,7 +299,9 @@ h3.dream-name {
     width: 60vw;
     margin-right: 10px;
     border: none;
-    border-bottom: 1px solid black;
+    background-color: #15041e;
+    border-bottom: 1px solid #896fac;
+    color:white;
   }
 
   #feeling {
@@ -258,7 +313,8 @@ h3.dream-name {
   }
 
   #email,
-  #password {
+  #password,
+  #name {
     width: 100%;
   }
   .dreams-list {

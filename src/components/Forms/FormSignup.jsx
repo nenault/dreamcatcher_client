@@ -41,15 +41,23 @@ class FormSignup extends Component {
 
   render() {
     return (
-      <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <input type="name" id="name" name="name" />
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <button>Submit</button>
-      </form>
+      <div className="one-dream">
+        <form
+          className="form-login"
+          onChange={this.handleChange}
+          onSubmit={this.handleSubmit}
+        >
+          {/* <label htmlFor="name">Name</label> */}
+          <input placeholder="Name" type="name" id="name" name="name" />
+          {/* <label htmlFor="email">Email</label> */}
+          <input placeholder="Email" type="email" id="email" name="email" />
+          {/* <label htmlFor="password">Password</label> */}
+          <input placeholder="Password" type="password" id="password" name="password" />
+          <button className="btn-dream">
+            Signup&nbsp;<i class="fas fa-smile"></i>
+          </button>
+        </form>
+      </div>
     );
   }
 }

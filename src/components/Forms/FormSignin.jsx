@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { UserContext } from "../Auth/UserContext";
 import { withRouter } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
+import { Link } from "react-router-dom";
 
 class FormSignin extends Component {
   static contextType = UserContext;
@@ -44,14 +45,45 @@ class FormSignin extends Component {
   render() {
     return (
       <div className="one-dream">
-        <form className="form-login" onChange={this.handleChange} onSubmit={this.handleSubmit}>
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" />
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" />
-          <button>Submit</button>
+        <form
+          className="form-login"
+          onChange={this.handleChange}
+          onSubmit={this.handleSubmit}
+        >
+          {/* <label htmlFor="email">Email</label> */}
+          <input placeholder="Email" type="email" id="email" name="email" />
+          {/* <label htmlFor="password">Password</label> */}
+          <input
+            placeholder="Password"
+            type="password"
+            id="password"
+            name="password"
+          />
+          <button className="btn-dream">
+            Signin&nbsp;<i className="fas fa-smile"></i>
+          </button>
         </form>
-        Don't have an account? Register 
+        <span
+          style={{
+            marginTop: "30px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+          className="tool"
+          to="/signup"
+        >
+          Don't have an account?
+          <Link
+            style={{
+              color: "#eb10db",
+            }}
+            className="tool"
+            to="/signup"
+          >
+            Please register
+          </Link>
+        </span>
       </div>
     );
   }

@@ -181,7 +181,7 @@ class FormDream extends Component {
                     color:
                       this.state.concepts[i].type.length === 0
                         ? "#FFFFFF"
-                        : "#ABACAB",
+                        : "#896fac",
                   }}
                 >
                   It was about some
@@ -206,15 +206,45 @@ class FormDream extends Component {
                     : "visible",
               }}
             >
-              <h2 className="question">Remember something else ?</h2>
+              <h2
+                style={{
+                  marginTop: "20px",
+                  color:
+                    this.state.createVisible === false ? "#FFFFFF" : "#896fac",
+                }}
+                className="question"
+              >
+                Remember something else ?
+              </h2>
               <p>
-                <span className="add-some" onClick={() => this.addConcept()}>
+                <span
+                  style={{
+                    color:
+                      this.state.createVisible === false
+                        ? "#FFFFFF"
+                        : "#896fac",
+                  }}
+                  className="add-some"
+                  onClick={() => this.addConcept()}
+                >
                   Mhhhhm yep
                 </span>
-                <span onClick={() => this.addCreate()}> Nope, that's it</span>
+                <span
+                  style={{
+                    color:
+                      this.state.createVisible === false
+                        ? "#FFFFFF"
+                        : "#896fac",
+                  }}
+                  onClick={() => this.addCreate()}
+                >
+                  {" "}
+                  Nope, that's it
+                </span>
               </p>
               <div
                 style={{
+                  marginTop: "20px",
                   visibility:
                     this.state.createVisible === false ? "hidden" : "visible",
                 }}
@@ -228,7 +258,16 @@ class FormDream extends Component {
                   onChange={this.handleChange}
                 />
                 <br />
-                <button className="btn-dream">{buttonStatus}</button>
+                <button
+                  style={{
+                    marginTop: "20px",
+                    visibility:
+                    this.state.name.length === 0 ? "hidden" : "visible",
+                  }}
+                  className="btn-dream"
+                >
+                  {buttonStatus}&nbsp;<i class="fas fa-smile"></i>
+                </button>
               </div>
             </div>
           </div>
