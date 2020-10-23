@@ -11,9 +11,14 @@ class Home extends React.Component {
           }}
         >
           {" "}
-          Keep a journal of your dreams with <span style={{
-            color: "#eb10db",
-          }}>Reve.le</span>
+          Keep a journal of your dreams with{" "}
+          <span
+            style={{
+              color: "#eb10db",
+            }}
+          >
+            Reve.le
+          </span>
         </span>
         <img
           style={{
@@ -25,9 +30,14 @@ class Home extends React.Component {
           alt="revele1"
         />
         <p>
-          <span style={{
-            color: "#743ece",
-          }}>1.</span> When you wake up, take a few seconds to tell us how you feel and to
+          <span
+            style={{
+              color: "#743ece",
+            }}
+          >
+            1.
+          </span>{" "}
+          When you wake up, take a few seconds to tell us how you feel and to
           fill in the key elements of your dream.
         </p>
         <img
@@ -40,10 +50,15 @@ class Home extends React.Component {
           alt="revele2"
         />
         <p>
-        <span style={{
-            color: "#743ece",
-          }}>2.</span> All your dreams are logged in the application, you can choose to
-          make them public one by one if you want to share them.
+          <span
+            style={{
+              color: "#743ece",
+            }}
+          >
+            2.
+          </span>{" "}
+          All your dreams are logged in the application, you can choose to make
+          them public one by one if you want to share them.
         </p>
         <img
           style={{
@@ -55,10 +70,16 @@ class Home extends React.Component {
           alt="revele3"
         />
         <p>
-        <span style={{
-            color: "#743ece",
-          }}>3.</span> All your dreams are logged in the application, you can choose to
-          make them public one by one if you want to share them.
+          <span
+            style={{
+              color: "#743ece",
+            }}
+          >
+            3.
+          </span>{" "}
+          Discover the things you've been dreaming about most in the last few
+          months, as well as the emotions you feel most frequently when you wake
+          up.
         </p>
       </div>
     );

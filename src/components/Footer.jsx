@@ -14,19 +14,19 @@ const Footer = (props) => {
 
           <React.Fragment>
             <li>
-              <NavLink exact className="underline" to="/dreams/create">Write</NavLink>
+              <NavLink exact className="underline" to="/dreams/create">Re•member</NavLink>
             </li>
           </React.Fragment>
  
           <React.Fragment>
             <li>
-              <NavLink exact className="underline" to="/dreams">Dreams</NavLink>
+              <NavLink exact className="underline" to="/dreams">Re•wind</NavLink>
             </li>
           </React.Fragment>
 
           <React.Fragment>
             <li>
-              <NavLink className="underline" to="/profile">Profile</NavLink>
+              <NavLink className="underline" to="/profile">Re•port</NavLink>
             </li>
           </React.Fragment>
         

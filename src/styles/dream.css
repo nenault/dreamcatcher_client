@@ -164,7 +164,7 @@ h1.dream {
 .dream-data {
   display: flex;
   flex-direction: column;
-  margin-left: 40px;
+  margin-left: 30px;
 }
 
 .dream-thought {
@@ -225,6 +225,7 @@ blockquote:after {
 .dreams-fulllist {
   display: flex;
   flex-direction: column;
+  width: 80vw;
 }
 
 h3.dream-name {
@@ -250,6 +251,14 @@ h3.dream-name {
     align-items: center;
   }
 
+  .profile-dream {
+    width: 90vw;
+    padding: 10px 30px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .dream-title {
     font-size: 28px;
   }
@@ -259,12 +268,13 @@ h3.dream-name {
   }
 
   .dream-img {
-    width: 28vw;
+    height: 20vh;
+    max-width: 28vw;
   }
   .somes {
     display: flex;
     width: 90vw;
-    padding: 0 16px;
+    padding: 0 10px;
     justify-content: center;
     flex-direction: column;
   }

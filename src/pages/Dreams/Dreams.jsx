@@ -86,7 +86,14 @@ class Dreams extends Component {
         )}
         <div className="dreams-fulllist">
           {withoutLast.map((dream) => (
-            <React.Fragment key={dream._id}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+              key={dream._id}
+            >
               <div
                 style={{
                   marginTop: "12px",
@@ -98,32 +105,34 @@ class Dreams extends Component {
                   <i className="fas fa-lock-open"></i>
                 )}{" "}
                 <DreamCard id={dream._id} name={dream.name} />
-                <div>
-                  <Link
-                    style={{
-                      color: "#896fac",
-                    }}
-                    className="tool"
-                    to={`/dreams/${dream._id}/`}
-                  >
-                    read
-                  </Link>
-                  {/* <Link className="tool" to={`/dreams/${dream._id}/edit`}>
+              </div>
+              <div style={{
+                  marginTop: "12px",
+                }}>
+                <Link
+                  style={{
+                    color: "#896fac",
+                  }}
+                  className="tool"
+                  to={`/dreams/${dream._id}/`}
+                >
+                  read
+                </Link>
+                {/* <Link className="tool" to={`/dreams/${dream._id}/edit`}>
                 <i className="fas fa-pen-nib"></i>
               </Link> */}
-                  <Link
-                    style={{
-                      color: "#896fac",
-                    }}
-                    className="tool"
-                    to={this.props}
-                    onClick={() => this.deleteOne(dream._id)}
-                  >
-                    delete
-                  </Link>
-                </div>
+                <Link
+                  style={{
+                    color: "#896fac",
+                  }}
+                  className="tool"
+                  to={this.props}
+                  onClick={() => this.deleteOne(dream._id)}
+                >
+                  delete
+                </Link>
               </div>
-            </React.Fragment>
+            </div>
           ))}
         </div>
       </div>

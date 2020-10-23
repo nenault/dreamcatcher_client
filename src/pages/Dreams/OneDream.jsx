@@ -17,9 +17,7 @@ class OneDream extends Component {
     apiHandler
       .getOne("/api/dreams/", this.props.match.params.id)
       .then((apiRes) => {
-        if (this.context.isLoading) {
-          return null;
-        } else if (
+        if (
           apiRes.data.isProtected === true &&
           this.context.isLoggedIn === false
         ) {

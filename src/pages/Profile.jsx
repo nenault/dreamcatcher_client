@@ -300,7 +300,7 @@ class Profile extends Component {
     }
 
     return (
-      <div className="one-dream">
+      <div className="profile-dream">
         <div
           style={{
             paddingBottom: "30px",
@@ -311,7 +311,7 @@ class Profile extends Component {
         <span className="charts-title">Feelings</span>
         <span
           style={{
-            marginRight: "30px",
+            marginLeft: "10px",
           }}
         >
           <XYPlot height={200} width={300} xType="ordinal" color="#743ece">
@@ -324,7 +324,7 @@ class Profile extends Component {
           <span className="charts-title">People</span>
           <div
             style={{
-              marginRight: "30px",
+              marginLeft: "10px",
               marginBottom: "30px",
             }}
             className="list-one"
@@ -349,7 +349,7 @@ class Profile extends Component {
           <span className="charts-title">Places</span>
           <div
             style={{
-              marginRight: "30px",
+              marginLeft: "10px",
               marginBottom: "30px",
             }}
             className="list-where"
@@ -374,7 +374,7 @@ class Profile extends Component {
           <span className="charts-title">Things</span>
           <div
             style={{
-              marginRight: "30px",
+              marginLeft: "10px",
             }}
             className="list-thing"
           >
